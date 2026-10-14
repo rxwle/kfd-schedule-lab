@@ -83,7 +83,7 @@ fun parseScheduleLine(number: Long, line: String): ParseResult {
     }
 }
 
-fun ReasonInfo(failure: ParseResult.Failure): String {
+fun reasonInfo(failure: ParseResult.Failure): String {
     val num = failure.number
     val reason = failure.reason
     return when (reason) {
@@ -97,7 +97,7 @@ fun ReasonInfo(failure: ParseResult.Failure): String {
     }
 }
 
-fun SessionInfo(session: Session): String {
+fun sessionInfo(session: Session): String {
     val type = when (session) {
         is LectureSession -> SessionType.LECTURE
         is PracticeSession -> SessionType.PRACTICE

@@ -21,7 +21,7 @@ fun runPeriod(command: Command.Period): Int {
         if (res is ParseResult.Success) {
             val session = res.session
             if (session.date >= command.from && session.date <= command.to) {
-                println(SessionInfo(session))
+                println(sessionInfo(session))
                 counter++
             }
         }
@@ -48,7 +48,7 @@ fun runType(command: Command.ByType): Int {
                 SessionType.CANCELLED -> session is CancelSession
             }
             if (sessiontype) {
-                println(SessionInfo(session))
+                println(sessionInfo(session))
                 counter++
             }
         }
@@ -67,7 +67,7 @@ fun runErrors(command: Command.Errors): Int {
         total++
         val res = parseScheduleLine(number, line)
         if (res is ParseResult.Failure) {
-            println(ReasonInfo(res))
+            println(reasonInfo(res))
             rejected++
         }
     }
